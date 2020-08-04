@@ -1,7 +1,16 @@
-import express from 'express';
+import express, { response } from 'express';
 
 const app = express();
 app.use(express.json());
+
+app.get('/', (request, response) => {
+  return response.json({ message: "OK"})
+})
+
+app.listen(3333, () => {
+  console.log('Rodando na porta 3333!');
+});
+
 
 /** Métodos */
 
@@ -14,34 +23,32 @@ app.use(express.json());
 
 //Corpo (Request body): Dados para criação ou atualização de um registro;
 //Route Params: Identificar qual recurso(registro) eu quero atualizar ou deletar
-//Query Params:
+//Query Params: Páginação, filtros, ordenação
 
-app.get('/users', (request, response) => {
-  const users = [
-    { name: 'Miguel', age: 34},
-    { name: 'Magda', age: 38},
-  ];
+// app.get('/users', (request, response) => {
+//   const users = [
+//     { name: 'Miguel', age: 34},
+//     { name: 'Magda', age: 38},
+//   ];
   
-  return response.json(users)
-});
+//   return response.json(users)
+// });
 
-app.post('/users', (request, response) => {
-  console.log(request.body)
+// app.post('/users', (request, response) => {
+//   console.log(request.body)
 
-  const users = [
-    { name: 'Miguel', age: 34},
-    { name: 'Magda', age: 38},
-  ];
+//   const users = [
+//     { name: 'Miguel', age: 34},
+//     { name: 'Magda', age: 38},
+//   ];
   
-  return response.json(users)
-});
+//   return response.json(users)
+// });
 
-app.delete('/users/:id', (request, response) => {
-  console.log(request.params);
+// app.delete('/users/:id', (request, response) => {
+//   console.log(request.params);
 
-  return response.send('Usuario deletado')
-});
+//   return response.send('Usuario deletado')
+// });
 
-app.listen(3333, () => {
-  console.log('Rodando na porta 3333!');
-});
+
