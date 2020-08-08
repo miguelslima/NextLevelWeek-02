@@ -1,12 +1,11 @@
-import React from "react";
-import { View, ImageBackground, Text } from "react-native";
+import React from 'react';
+import { View, ImageBackground, Text } from 'react-native';
 
-import giveClassesBgImage from "../../assets/images/give-classes-background.png";
+import { RectButton } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
+import giveClassesBgImage from '../../assets/images/give-classes-background.png';
 
-import { RectButton } from "react-native-gesture-handler";
-import { useNavigation } from "@react-navigation/native";
-
-import styles from "./styles";
+import styles from './styles';
 
 function GiveClasses() {
   const navigation = useNavigation();
@@ -14,7 +13,7 @@ function GiveClasses() {
   function handleNavigateBack() {
     navigation.goBack();
   }
-  
+
   return (
     <View style={styles.container}>
       <ImageBackground
